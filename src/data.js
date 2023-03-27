@@ -10,6 +10,10 @@ export const baseDatos = () => {
       let spells = data['spells']
       let potions = data['potions']
       let characters = data['characters']
+      let funfacts = data['funFacts']
+      let books = data['books']
+
+
 
       /*Presentacion de la informacion hechizos */
       const datosInicialesSpells = spells.map(spell => {
@@ -20,8 +24,10 @@ export const baseDatos = () => {
         <strong>Mention:</strong> ${spell.mention} <br>
         <strong>Other Name:</strong> ${spell.other_name} </div>`;
       }).join("");
-      const contenedorspells = document.getElementById("contenedorspells");
+      let contenedorspells = document.getElementById("contenedorspells");
       contenedorspells.innerHTML = datosInicialesSpells;
+
+
 
       /*Presentacion de la informacion casas de Hogwarts */
       const datosInicialesHouses = characters.map(character => {
@@ -46,11 +52,8 @@ export const baseDatos = () => {
       const contenedorPotions = document.getElementById("contenedorpotions");
       contenedorPotions.innerHTML = datosInicialesPotions;
 
-
-      /*Filtro por tipos de Hechizos */
-
       // traer la información de fun-facts
-      let funfacts = data['funFacts']
+
       const mostrarfunFacts = funfacts.map(funfact => {
         return `<div class="funfacts" id="funfacts">
         <div class="card-funfact" id="card-funfact">
@@ -60,10 +63,10 @@ export const baseDatos = () => {
         </div>`;
       }).join("");
       const card_funfact = document.getElementById("all-funfacts");
-      card_funfact.innerHTML = mostrarfunFacts; 
+      card_funfact.innerHTML = mostrarfunFacts;
 
       // traer la información de books
-      let books = data['books']
+
       const mostrarbooks = books.map(book => {
         return `
         <div class="book-card">
@@ -87,6 +90,45 @@ export const baseDatos = () => {
       const all_books = document.getElementById("all-books");
       all_books.innerHTML = mostrarbooks;
 
+      /*Presentacion de datos hechizos*/
+
+      const cantidadHechizos = spells.reduce(function (counts, spell) {
+        if (spell.spell_type !== null) {
+          counts[spell.spell_type] = (counts[spell.spell_type] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadHechizos)
+
+      /*Presentacion de datos Casas de Hogwarts*/
+
+      const cantidadcharacters = characters.reduce(function (counts, character) {
+        if (character.house !== null) {
+          counts[character.house] = (counts[character.house] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadcharacters)
+
+      const cantidadspecies = characters.reduce(function (counts, character) {
+        if (character.species !== null) {
+          counts[character.species] = (counts[character.species] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadspecies)
+
+
+      const cantidadshaircolor = characters.reduce(function (counts, character) {
+        if (character.hair_color !== null) {
+          counts[character.hair_color] = (counts[character.hair_color] || 0) + 1;
+        }
+        return counts;
+      }, {});
+      console.log(cantidadshaircolor)
+
+
+      /*Filtro por tipos de Hechizos */
       const filtro = document.getElementById("informacion");
       filtro.addEventListener("change", () => {
         const valorFiltro = filtro.value;
@@ -110,7 +152,6 @@ export const baseDatos = () => {
       });
 
       /*Buscador Hechizos*/
-
       const busquedaHechizo = document.getElementById("busquedaSpell1");
       busquedaHechizo.addEventListener("keyup", () => {
         const busqueda = busquedaHechizo.value;
@@ -125,7 +166,6 @@ export const baseDatos = () => {
           return `<div class = "spellitem"> 
           <strong>Name:</strong> ${spell.name} <br>
           <strong>Spell type:</strong> ${spell.spell_type} <br>
-          
           <strong>Mention:</strong> ${spell.mention} <br>
           <strong>Other Name:</strong> ${spell.other_name} </div>`;
         }).join("");
@@ -139,7 +179,6 @@ export const baseDatos = () => {
 
 
       /*Filtro por tipos de casas de Hogwarts */
-
       const casasH = document.getElementById("ordencasas");
       casasH.addEventListener("change", () => {
         const valorcasasH = casasH.value;
@@ -164,7 +203,6 @@ export const baseDatos = () => {
       });
 
       /*Buscador casas de Hogwarts*/
-
       const busquedaCasasHogwarts = document.getElementById("busquedaHouse");
       busquedaCasasHogwarts.addEventListener("input", () => {
         const CasasHogwarts = busquedaCasasHogwarts.value;
@@ -218,8 +256,8 @@ export const baseDatos = () => {
         totalfinalOrden.innerHTML = resultadosOrdenados;
 
       });
-      /* Buscador Pociones*/
 
+      /* Buscador Pociones*/
       const busquedaPociones = document.getElementById("busquedaPotions");
       busquedaPociones.addEventListener("input", () => {
         const encuentro = busquedaPociones.value;
@@ -250,3 +288,10 @@ export const baseDatos = () => {
 
 
 }
+
+
+
+
+
+
+
