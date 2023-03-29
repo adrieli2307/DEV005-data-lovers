@@ -487,6 +487,7 @@ p {
     color: white;
     margin: 10px;
     font-size: 16px;
+    line-height: 25px;
 }
 
 .funfacts:hover .card-funfact {
