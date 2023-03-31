@@ -12,7 +12,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
@@ -27,6 +26,12 @@ body {
     list-style: none;
     top: 34%;
     transform: translate(-50%);
+    z-index: 10;
+}
+
+.navigation span {
+    position: absolute;
+    left: 5px;
 }
 
 .navigation #inicio,
@@ -45,19 +50,9 @@ body {
     border-style: none;
 }
 
-
-.seccion1 #botones {
-    opacity: 0;
-}
-
-.seccion1:hover #botones {
-    opacity: 1;
-}
-
-
 .logo {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -67,10 +62,31 @@ body {
 .frase {
     color: var(--negro);
     font-size: 1rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     font-family: var(--fuenteParrafos);
-    line-height: 25px;
 
+}
+
+
+@media (max-width: 768px) {
+    .logo {
+        top: 15%;
+        left: 55%;
+    }
+
+    .frase {
+        top: 28%;
+        left: 50%;
+        width: 80%;
+        font-weight: bold;
+        color: var(--negro);
+        background-color: rgb(173, 170, 170);
+
+    }
 }
 
 
@@ -81,14 +97,24 @@ span {
     font-size: 1rem;
 }
 
+@media (max-width:768px) {
+    span {
+        color: var(--negro);
+        font-weight: bold;
+    }
+}
 
 section {
-    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     /* horizontal */
     align-items: center;
     /* vertical */
+}
+
+#section1 {
+    overflow: hidden;
 }
 
 #section2,
@@ -100,16 +126,6 @@ section {
 
 }
 
-#section1:before {
-    z-index: 888;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(transparent, #1D2625);
-}
 
 #section2 {
     display: none;
@@ -121,7 +137,6 @@ section {
     width: 10px;
     height: 10px;
     background: #ccc;
-    border: 2px solid black;
     border-radius: 50%;
     margin-top: 15px;
     cursor: pointer;
@@ -129,34 +144,25 @@ section {
     list-style: none;
 }
 
+.harry {
+    position: relative;
+
+    height: 100vh;
+}
 
 video {
     position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 
-@media(min-aspect-ratio: 16/9) {
-    video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media(max-aspect-ratio: 16/9) {
-    video {
-        width: auto;
-        height: 100%;
-    }
-}
-
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 /* ---------- HECHIZOS --------------- */
 
@@ -192,9 +198,14 @@ button {
     font-size: 40px;
 }
 
+
+
 .menu {
     margin-left: 80px;
+    padding: 6px;
+    border-radius: 14px;
 }
+
 
 .contenedor {
     display: grid;
@@ -222,9 +233,7 @@ button {
 .spellitem strong,
 .characterItem strong,
 .potionItem strong {
-    font-weight: bold;
     margin-bottom: 10px;
-
 }
 
 
@@ -235,17 +244,32 @@ button {
     color: white;
 }
 
+
+.bosque label {
+    color: white;
+    width: 250px;
+    margin-left: 16%;
+}
+
 .bosque input {
-    padding: 10px;
+    padding: 6px;
     outline: none;
-    border-radius: 13px;
+    border-radius: 14px;
     width: 18%;
-    margin-left: 80%;
-    position: absolute;
+    margin-left: 2%;
     font-size: 14px;
 }
 
 
+@media (max-width: 768px) {
+
+    .bosque input,
+    .menu,
+    .bosque label {
+        margin-left: 25%;
+        width: 50%;
+    }
+}
 
 .search-button {
     position: relative;
@@ -262,66 +286,99 @@ button {
 
 
 /* ---------- ARROW LEFT AND RIGHT  --------------- */
-.acordeon {
-    width: 800px;
-    margin: 90px 20px;
-    color: var(--blanco);
-    background-image: url(../img/bg-bottom.webp);
-    padding: 45px 45px;
+
+.container-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
 
-.acordeon .cont-acordeon {
+
+
+.circular-container {
+    display: flex;
+    width: 420px;
+    padding: 50px 0;
+    border-radius: 8px;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.circular-progress,
+.circular-progress02 {
     position: relative;
-    margin: 10px 10px;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#6e647c 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.cont-acordeon .contenido {
-    color: var(--blanco);
-}
-
-.acordeon .etiqueta {
-    position: relative;
-    padding: 10px 0;
-    font-size: 30px;
-    color: var(--blanco);
-    cursor: pointer;
-}
-
-.acordeon .etiqueta::before {
-    content: '+';
-    color: black;
+.circular-progress::before,
+.circular-progress02::before {
+    content: "";
     position: absolute;
-    top: 50%;
-    right: -5px;
-    font-size: 30px;
-    transform: translateY(-50%);
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: white;
 }
 
-.acordeon .contenido {
+.progress-value,
+.progress-value02 {
     position: relative;
-    background: white;
-    height: 0;
-    font-size: 20px;
-    text-align: justify;
-    width: 700px;
-    overflow: hidden;
-    transition: 0.5s;
+    font-size: 40px;
+    font-weight: 600;
+    color: #91889c;
 }
 
-.acordeon hr {
-    width: 100;
-    margin-left: 0;
-    border: 1px solid grey;
+.text {
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--blanco);
+    font-weight: bold;
+    margin: auto;
 }
 
-.acordeon .cont-acordeon.activa .contenido {
-    height: 150px;
+@media (max-width: 800px) {
+    .circular-container {
+        width: 280px;
+        margin-top: 0%;
+        margin-bottom: 5%;
+        margin-left: 60px;
+    }
+
+    .circular-progress,
+    .circular-progress02 {
+        height: 120px;
+        width: 120px;
+    }
+
+    .circular-progress::before,
+    .circular-progress02::before {
+        height: 100px;
+        width: 100px;
+    }
+
+    .progress-value,
+    .progress-value02 {
+        font-size: 30px;
+        margin-right: 25%;
+    }
+
+    .text {
+        font-size: 16px;
+        margin-right: 10%;
+    }
 }
 
-.acordeon .cont-acordeon.activa .etiqueta::before {
-    content: '-';
-    font-size: 30px;
-}
 
 
 /* ---------- POCIONES --------------- */
@@ -334,6 +391,7 @@ button {
 
 /* ---------- BOOKS --------------- */
 
+
 .all-books {
     display: flex;
     justify-content: center;
@@ -343,6 +401,7 @@ button {
     width: 100%;
     height: 100%;
 }
+
 
 .book-card {
     display: grid;
@@ -374,6 +433,7 @@ button {
     position: absolute;
     height: 100%;
     width: 100%;
+    cursor: pointer;
 }
 
 .book-card .book-card__book-back {
@@ -438,6 +498,46 @@ button {
     opacity: 1;
 }
 
+
+@media only screen and (max-width: 768px) {
+    .all-books {
+        padding-top: 30px;
+        padding-left: 57px;
+    }
+
+    .book-card {
+        width: 90%;
+        padding: 15px;
+        padding-top: 5px;
+    }
+
+    .book-card .book-card__cover {
+        width: 130px;
+        height: 220px;
+    }
+
+    .book-card .book-card__book-back {
+        transform: translateZ(-20px);
+    }
+
+    .book-card .book-card__book-side {
+        width: 30px;
+        right: -20px;
+    }
+
+    .book-card .book-card__title {
+        font-size: 12px;
+    }
+
+    .book-card .book-card__author p {
+        width: 95%;
+        font-size: 10px;
+        line-height: 11px;
+        padding: 0px;
+
+    }
+}
+
 /* ---------- DATOS CURIORIOSOS --------------- */
 #section6>h1 {
     position: absolute;
@@ -449,14 +549,14 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
     height: 100%;
     padding: 70px 0px 0px 70px;
     background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Fhogwarts-legacy-wallpapers&psig=AOvVaw00WmQ98o_H9qO0GB6jEfS7&ust=1679970652889000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPjTh8KI-_0CFQAAAAAdAAAAABAE);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
     min-height: 100vh;
+    margin-left: 300px;
+    width: 68%;
 
 }
 
@@ -480,6 +580,7 @@ button {
     background: rgb(0, 0, 0, 0.4);
     opacity: 0;
     transition: .5s;
+    cursor: pointer;
 }
 
 .card-funfact h2,
@@ -492,6 +593,14 @@ p {
 
 .funfacts:hover .card-funfact {
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .all-funfacts {
+        margin-left: 8px;
+        width: 100%;
+    }
+
 }
 
 .final {
