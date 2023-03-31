@@ -12,93 +12,14 @@
     />
   </head>
 
-  <body>
-    <div class="navigation" id="botones">
-      <button
-        type="button"
-        class="boton__inicio"
-        id="inicio"
-        data-section="section1"
-      >
-        <i class="fa-solid fa-house-user"></i>
-      </button>
-      <button
-        type="button"
-        class="boton__hechizos"
-        id="hechizos"
-        data-section="section2"
-      >
-        <i class="fa-solid fa-wand-sparkles"> </i>
-      </button>
-      <button
-        type="button"
-        class="boton__libros"
-        id="libros"
-        data-section="section3"
-      >
-        <i class="fa-solid fa-book-quran"></i>
-      </button>
-      <button
-        type="button"
-        class="boton__casas"
-        id="casas"
-        data-section="section4"
-      >
-        <i class="fa-solid fa-house"></i>
-      </button>
-      <button
-        type="button"
-        class="boton__pociones"
-        id="pociones"
-        data-section="section5"
-      >
-        <i class="fa-solid fa-hat-wizard"></i>
-      </button>
-      <button
-        type="button"
-        class="boton__datos"
-        id="datos"
-        data-section="section6"
-      >
-        <i class="fa-brands fa-searchengin"></i>
-      </button>
-    </div>
-
-    <main>
-      <section id="section1" name="primero">
-        <div>
-          <video
-            src="../img/hero.mp4"
-            autoplay="true"
-            muted="true"
-            loop="true"
-          ></video>
-        </div>
-        <div>
-          <img
-            class="logo"
-            src="../img/harry-potter-logo-2004-2011-1630321258.png"
-            alt="harry-logo"
-          />
-          <div class="frase">
-            “Trabajar duro es importante, pero hay algo aún más importante.
-            <br />
-            Creer en ti mismo.” — Harry Potter —
-          </div>
-        </div>
-      </section>
-
-      <section id="section2" name="bosque">
-        <div class="bosque" id="bosque">
-          <h1 class="title">Hechizos</h1>
-          <div class="container-bosque">
-            <label>Buscar por nombre</label>
-            <input
-              class="sugerencias"
-              type="search"
-              placeholder="search"
-              id="busquedaSpell1"
-            />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Data Lovers</title>
+  <link rel="website icon" type="png" href="/img/harry_icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+</head>
 
             <!-- Filtrado de informacion-->
             <label>Filtrar por tipo de hechizo</label>
@@ -121,84 +42,112 @@
         </div>
       </section>
 
-      <section id="section3" class="bosque">
-        <div>
-          <h1 class="title">Libros Harry Potter</h1>
-          <div class="all-books" id="all-books"></div>
+  <main>
+    <section id="section1" name="primero">
+      <div class="harry">
+        <video src="../img/hero.mp4" autoplay="true" muted="true" loop="true"></video>
+      </div>
+      <div>
+        <img class="logo" src="../img/harry-potter-logo-2004-2011-1630321258.png" alt="harry-logo">
+        <div class="frase">“Trabajar duro es importante, pero hay algo aún
+          más importante.
+          <br>
+          Creer en ti mismo.” — Harry Potter —
         </div>
       </section>
 
-      <section id="section4">
-        <div class="bosque" id="rutacasas">
-          <h1 class="title">Casas de Hogwarts</h1>
-          <div class="container-bosque">
-            <label>Buscar por nombre</label>
-            <input
-              class="sugerencias"
-              type="search"
-              placeholder="search"
-              id="busquedaHouse"
-            />
-            <!-- Filtrado de informacion-->
-            <label>Filtrar por casas</label>
-            <select class="menu" id="ordencasas">
-              <option value="">Todos</option>
-              <option value="Gryffindor">Gryffindor</option>
-              <option value="Ravenclaw">Ravenclaw</option>
-              <option value="Slytherin">Slytherin</option>
-              <option value="Hufflepuff">Hufflepuff</option>
-            </select>
-          </div>
-          <div class="contenedor" id="contenedorhouse"></div>
-        </div>
-      </section>
+    <section id="section2" name="bosque">
+      <div class="bosque" id="bosque">
+        <h1 class="title">Hechizos</h1>
+        <div class="container-bosque">
+          <label class="">Buscar por nombre</label>
+          <input class="sugerencias" type="search" placeholder="Search" id="busquedaSpell1" />
 
-      <section id="section5">
-        <div class="bosque" id="rutapocion">
-          <h1 class="title">Pociones</h1>
-          <div class="container-bosque">
-            <label>Buscar por nombre</label>
-            <input
-              class="sugerencias"
-              type="search"
-              placeholder="search"
-              id="busquedaPotions"
-            />
-            <!-- Filtrado de informacion-->
-            <label>Filtro de mayor a menor</label>
-            <select class="menu" id="ordenselector">
-              <option value="">Todos</option>
-              <option value="Ascendente">Ascendente</option>
-              <option value="Descendente">Descendente</option>
-            </select>
-          </div>
-          <div class="contenedor" id="contenedorpotions"></div>
+          <!-- Filtrado de informacion-->
+          <label>Filtrar por tipo de hechizo</label>
+          <select class="menu" id="informacion">
+            <option value="">Todos</option>
+            <option value="Charm">Charm</option>
+            <option value="Conjuration">Conjuration</option>
+            <option value="Spell">Spell</option>
+            <option value="Transfiguration">Transfiguration</option>
+            <option value="Healing Spell">Healing Spell</option>
+            <option value="Vanishment">Vanishment</option>
+            <option value="Hex">Hex</option>
+            <option value="Jinx">Jinx</option>
+            <option value="Curse">Curse</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Dark Arts">Dark Arts</option>
+          </select>
+          <div class="contenedor" id="contenedorspells"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <section id="section6">
         <div class="container-orden">
           <h1 class="title">Datos curiosos</h1>
 
-          <div class="container-grid">
-            <div class="circular-container">
-              <div class="circular-progress">
-                <span class="progress-value">0%</span>
-              </div>
-              <span class="text" id="textValue01">Hola</span>
-            </div>
-
-            <div class="circular-container">
-              <div class="circular-progress02">
-                <span class="progress-value02">0%</span>
-              </div>
-              <span class="text" id="textValue02">Hola</span>
-            </div>
-          </div>
-
-          <div class="all-funfacts" id="all-funfacts"></div>
+    <section id="section4">
+      <div class="bosque" id="rutacasas">
+        <h1 class="title">Casas de Hogwarts</h1>
+        <div class="container-bosque">
+          <label class="">Buscar por nombre</label>
+          <input class="sugerencias" type="search" placeholder="Search" id="busquedaHouse" />
+          <!-- Filtrado de informacion-->
+          <label>Filtrar por tipo de poción</label>
+          <select class="menu" id="ordencasas">
+            <option value="">Todos</option>
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Hufflepuff">Hufflepuff</option>
+          </select>
         </div>
-      </section>
+        <div class="contenedor" id="contenedorhouse"></div>
+
+      </div>
+    </section>
+
+    <section id="section5">
+      <div class="bosque" id="rutapocion">
+        <h1 class="title">Pociones</h1>
+        <div class="container-bosque">
+          <label class="">Buscar por nombre</label>
+          <input class="sugerencias" type="search" placeholder="search" id="busquedaPotions" />
+          <!-- Filtrado de informacion-->
+          <label>Filtrar </label>
+          <select class="menu" id="ordenselector">
+            <option value="">Todos</option>
+            <option value="Ascendente">Ascendente</option>
+            <option value="Descendente">Descendente</option>
+          </select>
+        </div>
+        <div class="contenedor" id="contenedorpotions"></div>
+      </div>
+    </section>
+
+    <section id="section6" class="bosque">
+      <div class="container-orden">
+        <h1 class="title">Datos curiosos</h1>
+        <div class="container-grid">
+          <div class="circular-container">
+            <div class="circular-progress">
+              <span class="progress-value">0%</span>
+            </div>
+            <span class="text" id="textValue01"></span>
+          </div>
+          <div class="circular-container">
+            <div class="circular-progress02">
+              <span class="progress-value02">0%</span>
+            </div>
+            <span class="text" id="textValue02"></span>
+          </div>
+        </div>
+
+        <div class="all-funfacts" id="all-funfacts"></div>
+      </div>
+    </section>
 
       <script src="main.js" type="module" defer></script>
     </main>

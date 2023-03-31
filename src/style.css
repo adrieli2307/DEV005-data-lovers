@@ -12,7 +12,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
@@ -27,6 +26,12 @@ body {
     list-style: none;
     top: 34%;
     transform: translate(-50%);
+    z-index: 10;
+}
+
+.navigation span {
+    position: absolute;
+    left: 5px;
 }
 
 .navigation #inicio,
@@ -56,38 +61,60 @@ body {
     color: var(--negro);
     font-size: 1rem;
     position: absolute;
-    top: 65%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     font-family: var(--fuenteParrafos);
+
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .logo {
         top: 15%;
         left: 55%;
     }
 
     .frase {
-        top: 30%;
-        left: 55%;
-        width: 75%;
+        top: 28%;
+        left: 50%;
+        width: 80%;
+        font-weight: bold;
+        color: var(--negro);
+        background-color: rgb(173, 170, 170);
+
+    }
+}
+
+
+span {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-left: 50px;
+    font-size: 1rem;
+}
+
+@media (max-width:768px) {
+    span {
+        color: var(--negro);
         font-weight: bold;
     }
 }
 
 
 
-
 section {
-    
+
     display: flex;
     justify-content: center;
     /* horizontal */
     align-items: center;
     /* vertical */
+}
+
+#section1 {
+    overflow: hidden;
 }
 
 #section2,
@@ -99,16 +126,6 @@ section {
 
 }
 
-#section1:before {
-    z-index: 888;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(transparent, #1D2625);
-}
 
 #section2 {
     display: none;
@@ -131,28 +148,25 @@ section:nth-child(6) {
     list-style: none;
 }
 
+.harry {
+    position: relative;
+
+    height: 100vh;
+}
 
 video {
     position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 
-@media(min-aspect-ratio: 16/9) {
-    video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media(max-aspect-ratio: 16/9) {
-    video {
-        width: auto;
-        height: 100%;
-    }
-}
 
 /* ---------- HECHIZOS --------------- */
 
@@ -182,6 +196,14 @@ button {
 
 
 
+
+.menu {
+    margin-left: 80px;
+    padding: 6px;
+    border-radius: 14px;
+}
+
+
 .contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -209,7 +231,6 @@ button {
 .characterItem strong,
 .potionItem strong {
     margin-bottom: 10px;
-
 }
 
 
@@ -231,25 +252,19 @@ button {
     font-size: 40px;
 }
 
-.menu{
-    padding: 10px;
-    outline: none;
-    border-radius: 13px;
-    width: 50%;
-    font-size: 14px;
-}
 
-.bosque label{
+.bosque label {
     color: white;
     width: 250px;
-    margin-left: 40%;
+    margin-left: 16%;
 }
 
 .bosque input {
-    padding: 10px;
+    padding: 6px;
     outline: none;
-    border-radius: 13px;
-    width: 70%;
+    border-radius: 14px;
+    width: 18%;
+    margin-left: 2%;
     font-size: 14px;
 }
 
@@ -260,37 +275,47 @@ button {
       width: 50%;
     }
 
-    .container-bosque{
-        grid-template-rows: 25px;
+@media (max-width: 768px) {
 
+    .bosque input,
+    .menu,
+    .bosque label {
+        margin-left: 25%;
+        width: 50%;
     }
 }
 
-span {
-    color: var(--blanco);
-    font-weight: bold;
-    margin-left: 50px;
-    font-size: 1rem;
+.search-button {
+    position: relative;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 100%;
+    height: 40px;
+    left: 93%;
+    top: 6%;
+    z-index: 1;
+    margin-top: -30px
 }
 
 
-/* ---------- OTHER INFORMATION  --------------- */
 
-.container-grid{
+/* ---------- ARROW LEFT AND RIGHT  --------------- */
+
+.container-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    
+
 }
 
 
-.circular-container{
+
+.circular-container {
     display: flex;
     width: 420px;
     padding: 50px 0;
     border-radius: 8px;
-    background: white;
     row-gap: 30px;
     flex-direction: column;
     align-items: center;
@@ -299,7 +324,7 @@ span {
 }
 
 .circular-progress,
-.circular-progress02{
+.circular-progress02 {
     position: relative;
     height: 250px;
     width: 250px;
@@ -311,7 +336,7 @@ span {
 }
 
 .circular-progress::before,
-.circular-progress02::before{
+.circular-progress02::before {
     content: "";
     position: absolute;
     height: 210px;
@@ -321,17 +346,19 @@ span {
 }
 
 .progress-value,
-.progress-value02{
+.progress-value02 {
     position: relative;
     font-size: 40px;
     font-weight: 600;
     color: #91889c;
 }
 
-.text{
-    font-size: 30px;
+.text {
+    font-size: 26px;
     font-weight: 500;
-    color: #606060;
+    color: var(--blanco);
+    font-weight: bold;
+    margin: auto;
 }
 @media (max-width: 800px) {
     .circular-container {
@@ -341,22 +368,36 @@ span {
         margin-left: 60px;
     }
 
+@media (max-width: 800px) {
+    .circular-container {
+        width: 280px;
+        margin-top: 0%;
+        margin-bottom: 5%;
+        margin-left: 60px;
+    }
+
     .circular-progress,
-.circular-progress02{
-    height: 120px;
-    width: 120px;
-}
+    .circular-progress02 {
+        height: 120px;
+        width: 120px;
+    }
 
-.circular-progress::before,
-.circular-progress02::before{
-    height: 100px;
-    width: 100px;
-}
+    .circular-progress::before,
+    .circular-progress02::before {
+        height: 100px;
+        width: 100px;
+    }
 
-.progress-value,
-.progress-value02{
-    font-size: 30px;
-    margin-right: 25%;
+    .progress-value,
+    .progress-value02 {
+        font-size: 30px;
+        margin-right: 25%;
+    }
+
+    .text {
+        font-size: 16px;
+        margin-right: 10%;
+    }
 }
 
 .text{
@@ -376,6 +417,7 @@ span {
 
 /* ---------- BOOKS --------------- */
 
+
 .all-books {
     display: flex;
     justify-content: center;
@@ -385,6 +427,7 @@ span {
     width: 100%;
     height: 100%;
 }
+
 
 .book-card {
     display: grid;
@@ -416,6 +459,7 @@ span {
     position: absolute;
     height: 100%;
     width: 100%;
+    cursor: pointer;
 }
 
 .book-card .book-card__book-back {
@@ -480,6 +524,46 @@ span {
     opacity: 1;
 }
 
+
+@media only screen and (max-width: 768px) {
+    .all-books {
+        padding-top: 30px;
+        padding-left: 57px;
+    }
+
+    .book-card {
+        width: 90%;
+        padding: 15px;
+        padding-top: 5px;
+    }
+
+    .book-card .book-card__cover {
+        width: 130px;
+        height: 220px;
+    }
+
+    .book-card .book-card__book-back {
+        transform: translateZ(-20px);
+    }
+
+    .book-card .book-card__book-side {
+        width: 30px;
+        right: -20px;
+    }
+
+    .book-card .book-card__title {
+        font-size: 12px;
+    }
+
+    .book-card .book-card__author p {
+        width: 95%;
+        font-size: 10px;
+        line-height: 11px;
+        padding: 0px;
+
+    }
+}
+
 /* ---------- DATOS CURIORIOSOS --------------- */
 #section6>h1 {
     position: absolute;
@@ -491,14 +575,14 @@ span {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
     height: 100%;
     padding: 70px 0px 0px 70px;
     background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Fhogwarts-legacy-wallpapers&psig=AOvVaw00WmQ98o_H9qO0GB6jEfS7&ust=1679970652889000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPjTh8KI-_0CFQAAAAAdAAAAABAE);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
     min-height: 100vh;
+    margin-left: 300px;
+    width: 68%;
 
 }
 
@@ -522,6 +606,7 @@ span {
     background: rgb(0, 0, 0, 0.4);
     opacity: 0;
     transition: .5s;
+    cursor: pointer;
 }
 
 .card-funfact h2,
@@ -529,16 +614,21 @@ p {
     color: white;
     margin: 10px;
     font-size: 16px;
+    line-height: 25px;
 }
 
 .funfacts:hover .card-funfact {
     opacity: 1;
 }
-@media (max-width: 800px) {
+
+@media (max-width: 768px) {
     .all-funfacts {
-      margin-left: 10px;
+        margin-left: 8px;
+        width: 100%;
     }
+
 }
+
 .final {
     color: var(--blanco);
     font-weight: bold;

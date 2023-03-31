@@ -10,19 +10,18 @@ export const filterByName = (spells, busqueda) => {
   return hallazgo;
 };
 
+
 // TODO: filtrar por tipo de hechizo
-export const changeInfo = (valores, resultado) => {
-  if (valores === undefined || resultado === undefined) return undefined;
-  const resultados = valores.filter((spellType) => {
-    if (resultado === "") {
+export const changeInfo = (spells, valorspell) => {
+  const resultados = spells.filter((spell) => {
+    if (valorspell === "") {
       return true;
     } else {
-      return spellType.spell_type === resultado;
+      return spell.spell_type === valorspell;
     }
   });
   return resultados;
-};
-
+}
 // TODO: filtro por tipo de casa
 export const changeHouse = (characters, valorcasas) => {
   const resultadosHogwart = characters.filter((character) => {
@@ -48,6 +47,7 @@ export const orderByValue = (valorOrden, pocionesOrdenadas) => {
     if (pocionesOrdenadas === "Ascendente") {
       return a.name.localeCompare(b.name);
     }
+
   });
   return orderValue;
 };
